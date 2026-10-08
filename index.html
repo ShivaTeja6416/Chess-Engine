@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+
+    <link rel="stylesheet" href="style-left-panel.css" />
+    <link rel="stylesheet" href="style-main.css" />
+    <link rel="stylesheet" href="style-right-panel.css" />
+    <link rel="stylesheet" href="style-shades.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+                integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="container">
+
+        <div class="left-panel">
+            <div class="upper">
+                <div class="left-panel-upper-text">
+                    <span class="color-captured">WHITEs</span> <span style ="color: rgb(225, 0, 0);">CAPTURED</span> by BLACK</div>
+                <div class="whites-captured">
+                    <svg width="13rem" height="13rem" class="seperating-line-1">
+                        <defs>
+                            <linearGradient id="line-gradient" gradientUnits="userSpaceOnUse" x1="12rem" y1="1rem" x2="1rem" y2="9.5rem">
+                                <stop offset="0%" style="stop-color:rgba(30, 30, 30);" /> 
+                                <stop offset="50%" style="stop-color:rgb(200, 200, 200);" />
+                                <stop offset="100%" style="stop-color:rgba(30, 30, 30);" />
+                            </linearGradient>
+                        </defs>
+                        <line x1="12rem" y1="1rem" x2="1rem" y2="9.5rem" stroke="url(#line-gradient)" stroke-width="0.2rem" />
+                    </svg>
+                    <svg width="13rem" height="13rem" class="seperating-line-2">
+                        <line x1="12rem" y1="1rem" x2="1rem" y2="9.5rem" stroke="url(#line-gradient)" stroke-width="0.2rem" />
+                    </svg>
+                </div>
+            </div>
+            <div class="lower">
+                <div class="left-panel-lower-text">
+                    <span class="color-captured">BLACKs</span> <span style ="color: rgb(225, 0, 0);">CAPTURED</span>  by WHITE</div>
+                <div class="blacks-captured">
+                    <svg width="13rem" height="13rem" class="seperating-line-1">
+                        <defs>
+                            <linearGradient id="line-gradient-2" gradientUnits="userSpaceOnUse" x1="12rem" y1="1rem" x2="1rem" y2="9.5rem">
+                                <stop offset="0%" style="stop-color:rgb(200, 200, 200);" /> 
+                                <stop offset="50%" style="stop-color:rgb(81, 81, 81);" />
+                                <stop offset="100%" style="stop-color:rgb(200, 200, 200);" />
+                            </linearGradient>
+                        </defs>
+                        <line x1="12rem" y1="1rem" x2="1rem" y2="9.5rem" stroke="url(#line-gradient-2)" stroke-width="0.2rem" />
+                    </svg>
+                    <svg width="13rem" height="13rem" class="seperating-line-2">
+                        <line x1="12rem" y1="1rem" x2="1rem" y2="9.5rem" stroke="url(#line-gradient-2)" stroke-width="0.2rem" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div id="border-box">
+            <div id="top-wall"></div>  <div id="left-wall"></div>
+
+            <div id="game-board"></div>
+
+            <div id="right-wall"></div>  <div id="bottom-wall"></div>
+        </div>
+
+        <div class="right-panel">
+            <div class="title">CHESS</div>
+            <div class="right-panel-content">
+                <div class="promotion-modal"></div>
+                <div class="pocket"></div>
+                <div class="contents">
+                    <div class="controls">
+                        <button class="undo">
+                            <i class="fa-solid fa-rotate-left"></i></button>
+                        <div class="counter-box">
+                            <span>Moves count</span>
+                            <div class="counter"></div>
+                        </div>
+                        <button class="redo">
+                            <i class="fa-solid fa-rotate-right"></i></button>
+                    </div>
+                    <div id="videos-container">
+                        <div id="video-box-1" class="video-box">
+                            <object class="box-cutout" data="Icons/video-box-shape-1.dxf.svg" type="image/svg+xml"></object>
+                            <div id="video-border-1" class="video-border">
+                                <video id="video-1" 
+                                       autoplay playsinline disablepictureinpicture 
+                                       controlslist="nodownload nofullscreen noremoteplayback">
+                                </video>
+                                <audio id="audio-1"></audio>
+                                <div class="video-controls">
+                                    <div class="play-aud vid-on" id="play-aud-1">
+                                        <img src="Icons/volume.svg" alt="">
+                                    </div>
+                                    <div class="play-vid vid-on" id="play-vid-1">
+                                        <i class="fa-solid fa-video-slash"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="player-name-1" class="player-name">Opponent</div>
+                        </div>
+                        <div id="video-box-2" class="video-box">
+                            <object class="box-cutout" data="Icons/video-box-shape-2.dxf.svg" type="image/svg+xml"></object>
+                            <div id="video-border-2" class="video-border">
+                                <video id="video-2" 
+                                       autoplay playsinline disablepictureinpicture 
+                                       controlslist="nodownload nofullscreen noremoteplayback">
+                                </video>
+                                <audio id="audio-2"></audio>
+                                <div class="video-controls">
+                                    <div class="play-aud" id="play-aud-2">
+                                        <i class="fa-solid fa-microphone"></i>
+                                    </div>
+                                    <div class="play-vid" id="play-vid-2">
+                                        <i class="fa-solid fa-video"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="player-name-2" class="player-name">You</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="App-pieces-moves.js"></script>
+    <script src="App-main.js"></script>
+</body>
+</html>
